@@ -1,1 +1,1 @@
-# Transposable-Element-Analysis-with-SQuIRE
+# Transposable Element Analysis with SQuIRE
