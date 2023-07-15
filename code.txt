@@ -1,0 +1,119 @@
+PATH=$PATH:/root/blatSuite.37
+PATH=$PATH:/root/bin/
+PATH=$PATH:/root/weblogo/
+
+
+
+#annotate peaks for baseMean  DE
+annotatePeaks.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/log2FC/all_DE_TE_Homer_locations.txt mm10 -len 0 -size given -annStats /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/Annotatepeaks/TE_annotation.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/Annotatepeaks/DE_TE_Homer.txt
+
+
+#annotate peaks for all TE
+
+annotatePeaks.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_Homer_locations.txt mm10 -len 0 -size given -annStats /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_annotation.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_Homer.txt
+
+
+
+#save annotateion as well
+
+
+#Meta gene profile for DE TE
+makeMetaGeneProfile.pl rna mm10 -p /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/log2FC/all_DE_TE_Homer_locations.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_TE_Homer_locations_outputdsa.txt
+
+
+### meta for all
+makeMetaGeneProfile.pl rna mm10 -p /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_Homer_locations.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/Annotatepeaks/Meta annotate/all_TE_Homer_locations_outputdsa.txt
+
+
+
+#### find genes motifs with gene symbols
+
+findMotifs.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/all_DE_gene_Homer_symbol_list.txt mouse /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/DE_gene -p 16 -len 6,8,10,12 -nomask
+
+
+
+
+### this is DE_TE enrichments
+findMotifsGenome.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/all_DE_TE_Homer_locations.txt mm10 /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/DE_TE -size given -p 16 -len 6,8,10,12 -nomask
+
+findMotifsGenome.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/up_DE_TE_top50by_beseMean.txt mm10 /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/top50 -size given -p 8
+
+
+
+### perl /root/.//configureHomer.pl -install mouse-p             this is a gene control
+
+findMotifs.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/all_DE_gene_Homer_locations.txt mouse /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/ -start -400 -end 100 -len 8,10 -p 10
+
+
+
+
+
+
+#### this is a positive test to test tools  (homer,chipseeker)  (ignore it )
+annotatePeaks.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/exon_test/exons_positive_control.txt mm10 -len 0 -size given -annStats /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/exon_test/exons_P_C_annotation.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/exon_test/exons_P_C_Homer.txt
+
+
+
+
+
+
+
+
+
+###### select DE TEs that contain motif of DE genes
+
+
+annotatePeaks.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/all_DE_TE_Homer_locations.txt mm10 -len 0 -size given -annStats /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/co_occur/annotate.log -m /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/DE_gene/knownResults/*.motif -matrix /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/co_occur > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/co_occur/DE_TE&DE_gene_motif_co_occur.tsv
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#cd /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer
+#Install homer #perl configureHomer.pl -install homer
+
+#PATH=$PATH:/mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/Homer/bin/
+#PATH=$PATH:/mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/weblogo/
+#PATH=$PATH:/mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/blatSuite.37/
+#cd /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer
+
+
+
+perl bin/
+weblogo
+PATH=$PATH:root/weblogo/
+
+PATH=$PATH:root/bin/
+perl Homer/configureHomer.pl -list
+perl configureHomer.pl -install mm39
+
+
+
+touch ~/.bash_profile; open ~/.bash_profile
+
+PATH=$PATH:/Users/chucknorris/homer/bin/
+
+1
+
+PATH=$PATH:root/bin/
+PATH=$PATH:root/weblogo/
+
+
+
+
+
+
