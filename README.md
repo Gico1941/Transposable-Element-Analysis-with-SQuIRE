@@ -9,6 +9,7 @@ A analysis pipeline that integrates SQUIRE, GSEA and Hommer for TE/gene expressi
 
 ## Software denpendencies
 Ubuntu
-Linux Conda environment
+
+R 
 
 ## Usage
