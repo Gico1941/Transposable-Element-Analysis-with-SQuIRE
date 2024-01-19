@@ -23,15 +23,13 @@ Hommer (http://homer.ucsd.edu/homer/)
 Subsequent Data QC after rRNA removal with sortMeRNA (Overrepresented reads detected)
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/f9e4888c-c29a-4877-a4a4-037b6655843d" width="500" />
 
-run squire_batch
+### Step 2. run squire_batch_run.sh, squire_call_batch.sh and squire_count_batch.sh to generate TE/gene expression matrix 
 
-_run.sh, squire_call_batch.sh and squire_count_batch.sh to generate TE/gene expression matrix 
-
-### Step 2. Quality control 
+### Step 3. Alignment Quality control 
 #### Visualization of STAR mapping summary with Mapped_summary.R
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/dfd80791-0f77-4271-bfcd-464700e7b5fb" width="500" />
 
-#### Statistics of identities of reads 
+#### Identities of reads 
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/9623be09-6ddf-44ce-b4c4-74d1e2472f79" width="500" />
 
 
