@@ -86,11 +86,11 @@ Visualize the result with Meta_lin_plot.R
 
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/132fc3da-e66d-40dc-ad62-dd45a900f133" width="500" />
 
-From these result we can conclude most transcription-active TEs reside on gene reigion, but do these TE co-express with the genes they reside on?
+From these result we can conclude most transcription-active TEs reside in gene reigion, but do these TE co-express with the genes they reside in?
 
 ##### Step 4.3.2 TE-gene co-expression analysis with Homer_annotated_TE_co_expression_with_closet_gene.R
 
-Result of the expression correlation between TEs and the genes they reside on
+Result of the expression correlation between TEs and the genes they reside in
 
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/6fb7f654-0ee4-432d-bd21-31f710bc3b82" width="500" />
 
