@@ -32,8 +32,8 @@ Hommer (http://homer.ucsd.edu/homer/)
 
 #### GSEA (https://www.gsea-msigdb.org/gsea/index.jsp)
 
-#### Step 4. Hommer annotation to study genomic distribution of Genes and TEs to study their regulatory association
-##### Step 4.1 Hommer installatiton :
+### Step 4. Hommer annotation to study genomic distribution of Genes and TEs to study their regulatory association
+#### Step 4.1 Hommer installatiton :
   ```
 1. Download homer config : wget file http://homer.ucsd.edu/homer/configureHomer.pl                save it to /root
 2. install homer : perl configureHomer.pl -install homer  (may counter require for basic softwares)
@@ -58,16 +58,59 @@ environment preparation:
 11. unzip blatSuite.37.zip
 12. add into path : PATH=$PATH:/root/blat
   ```
-##### Step 4.2 generate BED format files for hommer process with Homer_file_generation_for_DE_genes.R and Homer_file_generation_for_TEs_only.R 
+#### Step 4.2 generate BED format files for hommer process with Homer_file_generation_for_DE_genes.R and Homer_file_generation_for_TEs_only.R 
+```
 (up_xxx   : up-regulated TE/gene (log2fc > 2, p < 10^-4))
+
 (down_xxx   : down-regulated TE/gene (log2fc < -2, p < 10^-4))
+```
+#### Step 4.3 Run hommer analysis
 
-##### Step 4.3
+##### Step 4.3.1 TE peak annotation
+TE peak annotation (run the command in ubuntu)
 
+```
+annotatePeaks.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_Homer_locations.txt mm10 -len 0 -size given -annStats /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_annotation.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/All_location/all_TE_Homer.txt
+```
 
+Visualize the result (TE distribution on genomic region)
 
+<img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/0b3fb0cd-5a37-4e2c-86e6-adcebeb48bd4" width="500" />
 
+Meta profile for TE
 
+```
+makeMetaGeneProfile.pl rna mm10 -p /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/log2FC/all_DE_TE_Homer_locations.txt > /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_TE_Homer_locations_output.txt
+```
+Visualize the result with Meta_lin_plot.R
+
+<img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/132fc3da-e66d-40dc-ad62-dd45a900f133" width="500" />
+
+From these result we can conclude most transcription-active TEs reside within gene reigion, but do these TE co-express with the genes they locate in?
+
+##### Step 4.3.2 TE-gene co-expression analysis with Homer_annotated_TE_co_expression_with_closet_gene.R
+
+Result of the expression correlation between TEs and the genes they locate in
+
+<img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/6fb7f654-0ee4-432d-bd21-31f710bc3b82" width="500" />
+
+##### Step 4.3.3 Motif enrichment analysis
+
+```
+#### find genes motifs with gene symbols
+findMotifs.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/all_DE_gene_Homer_symbol_list.txt mouse /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/DE_gene -p 16 -len 6,8,10,12 -nomask
+```
+
+```
+#### find genes motifs for TE
+findMotifsGenome.pl /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/DE_location/all_DE_TE_Homer_locations.txt mm10 /mnt/e/bioinfo/TE_differentiated_gene_analysis_ribo_removed/Homer/find_motif/DE_TE -size given -p 16 -len 6,8,10,12 -nomask
+```
+
+Visualization with motif_summary_bubble.R
+
+<img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/b40a3b77-6f1c-4e39-a900-2f0e47181895" width="500" />
+
+There are motifs shared by differentially expressed TE and genes
 
 
 
