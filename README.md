@@ -94,6 +94,8 @@ Result of the expression correlation between TEs and the genes they reside in
 
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/6fb7f654-0ee4-432d-bd21-31f710bc3b82" width="500" />
 
+Is this co-expression driven by co-regulation?
+
 ##### Step 4.3.3 Motif enrichment analysis
 
 ```
