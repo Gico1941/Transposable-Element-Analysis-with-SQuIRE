@@ -23,6 +23,11 @@ Hommer (http://homer.ucsd.edu/homer/)
 #### Visualization of STAR mapping summary with Mapped_summary.R
 <img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/dfd80791-0f77-4271-bfcd-464700e7b5fb" width="500" />
 
+### Step 3. Differential expression analysis with Differential_analysis_plot.R
+<img src="https://github.com/Gico1941/Transposable-Element-Analysis-with-SQuIRE/assets/127346166/b3ce81c2-aa68-4e85-a7f5-70aee61a788d" width="500" />
+
+
+
 
 
 
