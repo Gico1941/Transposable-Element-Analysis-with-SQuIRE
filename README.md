@@ -16,7 +16,7 @@ SQuIRE (https://github.com/wyang17/SQuIRE)
 
 Hommer (http://homer.ucsd.edu/homer/)
 
-## Results (use GSE211061 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE211061 as example)
+## Results (use GSE211061 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE211061 as example, mice lung AT2 cell treated with intra-nasal LPS)
 ### Step 1. run squire_batch_run.sh, squire_call_batch.sh and squire_count_batch.sh to generate TE/gene expression matrix 
 
 ### Step 2. Alignment Quality control 
